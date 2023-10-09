@@ -66,10 +66,12 @@ public class Store {
   public void addItem(Item i){
     // add Item i to store's itemList
     itemList.add(i);
+    System.out.printf("You added %s to %s's inventory.\n",i.getName(),this.name);
   }
 
   public void filterType(String type){
     // loop over itemList and print all items with the specified type
+    System.out.printf("The following are the available %s in %s.\n", type, this.name);
     for(Item i: itemList){
       if(type.equals(i.getType())){
         System.out.printf("Item: %s, Cost: %.0f\n", i.getName(), i.getCost());
@@ -78,16 +80,18 @@ public class Store {
   }
   public void filterCheap(double maxCost){
     // loop over itemList and print all items with a cost lower than or equal to the specified value
+    System.out.printf("The following are items in %s with a cost lower than or equal to %.0f\n",this.name, maxCost);
     for(Item i: itemList){
-      if(maxCost<=i.getCost()){
+      if(maxCost>=i.getCost()){
         System.out.printf("Item: %s, Cost: %.0f\n", i.getName(), i.getCost());
       }
     }
   }
   public void filterExpensive(double minCost){
     // loop over itemList and print all items with a cost higher than or equal to the specified value
+    System.out.printf("The following are items in %s with a cost higher than or equal to %.0f\n",this.name, minCost);
     for(Item i: itemList){
-      if(minCost>=i.getCost()){
+      if(minCost<=i.getCost()){
         System.out.printf("Item: %s, Cost: %.0f\n", i.getName(), i.getCost());
       }
     }
